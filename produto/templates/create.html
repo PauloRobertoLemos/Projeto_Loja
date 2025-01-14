@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Create Produto{% endblock %}
 {% block container %}
-
+{% load crispy_forms_tags %}
+<h2>Coloque um produto para cadastrar</h2>
 <form method="POST" class="form-group card p-4">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form | crispy }}
     <button type="submit" class="btn btn-primary">Salvar Produto</button><br>
     <a href="{% url 'list' %}" class="btn btn-secondary mt-3">Cancelar</a>
 </form>
-
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Produto List{% endblock %}
-{% block container %} 
+{% block container %}
 <div class="d-flex justify-content-between mb-3">
     <h2>Produto List</h2>
     <a href="{% url 'create' %}" class="btn btn-primary">Create Produto</a>
@@ -19,9 +19,24 @@
     </tr>
 </thead>
 <tbody>
+    {% for produto in produtos %}
     <tr>
-        <td></td>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ produto.produto_name }}</td>
+        <td>{{ produto.produto_preco }}</td>
+        <td>{{ produto.produto_quantidade_estoque }}</td>
+        <td>{{ produto.produto_data_criacao }}</td>
+        <td>
+            <a href="{% url 'update' produto.pk %}" class="btn btn-success btn-sm">Editar</a>
+            
+            <!-- Formulário para Deletar -->
+            <form action="{% url 'delete' produto.pk %}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+            </form>
+        </td>
     </tr>
+    {% endfor %}
 </tbody>
 </table>
 {% endblock %}
