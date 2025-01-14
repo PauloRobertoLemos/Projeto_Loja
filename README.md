@@ -9,7 +9,7 @@
 ### Instruções de Iniciação
 1. Clonar o repositório.
 2. Criar um ambiente Virtual.
-OBS: Tentei criar com vemv, porem meu computador não conseguiu conectar com o banco de dados local. Então criei sem usar o vemv e consegui conectar com o banco de dados.
+OBS: Tentei criar com vemv, porem meu computador não conseguiu conectar com o banco de dados local, por causa das portas da placa mãe, que não está funcionando. Então criei sem usar o vemv e consegui conectar com o banco de dados.
      Sei que usar o vemv é diferencial, mais se não fosse o meu computador eu conseguiria usar o vemv.
 
 ## Comando para abrir o terminal de maneira mais rápida e fácil
