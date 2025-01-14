@@ -3,7 +3,7 @@
 {% block container %}
 <div class="d-flex justify-content-between mb-3">
     <h2>Produto List</h2>
-    <a href="{% url 'create' %}" class="btn btn-primary">Create Produto</a>
+    <a href="{% url 'create' %}" class="btn btn-primary">Cadastro de Produto</a>
 </div>
 
 <table class="table table-bordered">
@@ -11,11 +11,11 @@
     <tr>
         <th>#</th>
         <th>Produto: ID</th>
-        <th>Produto: Name</th>
-        <th>Produto: Price</th>
-        <th>Produto: Quantidade em estoque</th>
-        <th>Produto: Data de Criação</th>
-        <th>Actions</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Quantidade em estoque</th>
+        <th>Data de Criação</th>
+        <th>Ações</th>
     </tr>
 </thead>
 <tbody>
@@ -33,7 +33,7 @@
 
             <!-- Botão que ativa o Modal -->
             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ produto.pk }}">
-                Deletar
+                Excluir
             </button>
 
             <!-- Modal -->
