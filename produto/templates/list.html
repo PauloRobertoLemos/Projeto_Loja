@@ -19,7 +19,7 @@
     </tr>
 </thead>
 <tbody>
-    {%if prodrutos%}
+    {% if produtos %}
     {% for produto in produtos %}
     <tr>
         <td>{{ forloop.counter }}</td>
@@ -60,11 +60,12 @@
             </div>
         </td>
     </tr>
-    {% endfor %}{%else%}
+    {% endfor %}
+    {% else %}
     <tr>
         <td colspan="6" class="text-center">Produto não encontrado ...</td>
     </tr>
-    {%endif%}
+    {% endif %}
 </tbody>
 </table>
 {% endblock %}
