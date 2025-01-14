@@ -1,4 +1,27 @@
 {% extends "base.html" %}
 {% block title %}Produto List{% endblock %}
 {% block container %} 
+<div class="d-flex justify-content-between mb-3">
+    <h2>Produto List</h2>
+    <a href="{% url 'create' %}" class="btn btn-primary">Create Produto</a>
+</div>
+
+<table class="table table-bordered">
+<thead class="table-dark">
+    <tr>
+        <th>#</th>
+        <th>Produto: ID</th>
+        <th>Produto: Name</th>
+        <th>Produto: Price</th>
+        <th>Produto: Quantidade em estoque</th>
+        <th>Produto: Data de Criação</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td></td>
+    </tr>
+</tbody>
+</table>
 {% endblock %}
