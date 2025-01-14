@@ -22,6 +22,7 @@
     {% for produto in produtos %}
     <tr>
         <td>{{ forloop.counter }}</td>
+        <td>{{ produto.produto_id }}</td>
         <td>{{ produto.produto_name }}</td>
         <td>{{ produto.produto_preco }}</td>
         <td>{{ produto.produto_quantidade_estoque }}</td>
