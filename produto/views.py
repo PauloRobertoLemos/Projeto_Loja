@@ -24,8 +24,8 @@ def produto_list(request):
     return render(request, 'list.html', {'produtos':produto})
 
 
-# updates view
-def updates_produto(request, pk):
+# update view
+def update_produto(request, pk):
     produto = Produto.objects.get(id=pk)
     if request.method == 'POST':
         form = ProdutoForm(request.POST, instance=produto)
