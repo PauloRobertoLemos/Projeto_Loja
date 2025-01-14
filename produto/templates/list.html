@@ -19,6 +19,7 @@
     </tr>
 </thead>
 <tbody>
+    {%if prodrutos%}
     {% for produto in produtos %}
     <tr>
         <td>{{ forloop.counter }}</td>
@@ -29,15 +30,41 @@
         <td>{{ produto.produto_data_criacao }}</td>
         <td>
             <a href="{% url 'update' produto.pk %}" class="btn btn-success btn-sm">Editar</a>
-            
-            <!-- Formulário para Deletar -->
-            <form action="{% url 'delete' produto.pk %}" method="POST" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
-            </form>
+
+            <!-- Botão que ativa o Modal -->
+            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ produto.pk }}">
+                Deletar
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="deleteModal{{ produto.pk }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ produto.pk }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="deleteModalLabel{{ produto.pk }}">Confirmar Exclusão</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Tem certeza que deseja excluir o produto "{{ produto.produto_name }}"?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <!-- Formulário de Exclusão -->
+                            <form action="{% url 'delete' produto.pk %}" method="POST" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Excluir</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </td>
     </tr>
-    {% endfor %}
+    {% endfor %}{%else%}
+    <tr>
+        <td colspan="6" class="text-center">Produto não encontrado ...</td>
+    </tr>
+    {%endif%}
 </tbody>
 </table>
 {% endblock %}
